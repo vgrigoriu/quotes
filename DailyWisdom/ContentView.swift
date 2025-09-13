@@ -7,8 +7,14 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .padding()
 
-            Text("Hello, World!")
+            Text("Loaded \(QuoteManager.shared.quotes.count) quotes")
                 .padding()
+
+            if let firstQuote = QuoteManager.shared.quotes.first {
+                Text(firstQuote)
+                    .padding()
+                    .multilineTextAlignment(.center)
+            }
         }
     }
 }

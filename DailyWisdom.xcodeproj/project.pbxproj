@@ -12,6 +12,7 @@
 		2A1B3C4D5E6F7890ABCD0005 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD0006 /* Assets.xcassets */; };
 		2A1B3C4D5E6F7890ABCD0007 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD0008 /* Preview Assets.xcassets */; };
 		2A1B3C4D5E6F7890ABCD0009 /* wisdom.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD000A /* wisdom.md */; };
+		2A1B3C4D5E6F7890ABCD0020 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD0021 /* QuoteManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2A1B3C4D5E6F7890ABCD0006 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A1B3C4D5E6F7890ABCD0008 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2A1B3C4D5E6F7890ABCD000A /* wisdom.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = wisdom.md; sourceTree = "<group>"; };
+		2A1B3C4D5E6F7890ABCD0021 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			children = (
 				2A1B3C4D5E6F7890ABCD0002 /* DailyWisdomApp.swift */,
 				2A1B3C4D5E6F7890ABCD0004 /* ContentView.swift */,
+				2A1B3C4D5E6F7890ABCD0021 /* QuoteManager.swift */,
 				2A1B3C4D5E6F7890ABCD000A /* wisdom.md */,
 				2A1B3C4D5E6F7890ABCD0006 /* Assets.xcassets */,
 				2A1B3C4D5E6F7890ABCD0010 /* Preview Content */,
@@ -143,6 +146,7 @@
 			files = (
 				2A1B3C4D5E6F7890ABCD0003 /* ContentView.swift in Sources */,
 				2A1B3C4D5E6F7890ABCD0001 /* DailyWisdomApp.swift in Sources */,
+				2A1B3C4D5E6F7890ABCD0020 /* QuoteManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
