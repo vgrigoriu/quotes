@@ -2,22 +2,38 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("Daily Wisdom")
-                .font(.largeTitle)
-                .padding()
+        VStack(alignment: .center, spacing: 0) {
+            Text("Merlin Mann's Daily Wisdom")
+                .font(.title)
+                .padding(.top, 20)
+                .padding(.horizontal)
 
-            Text(QuoteManager.shared.getTodaysQuote())
-                .padding()
-                .multilineTextAlignment(.center)
-                .font(.body)
-
-            Text("— Merlin Mann")
+            Text(Date(), style: .date)
                 .font(.caption)
                 .foregroundColor(.secondary)
-                .padding(.top, 8)
+                .padding(.top, 4)
+
+            Spacer()
+
+            VStack(spacing: 16) {
+                Text(QuoteManager.shared.getTodaysQuote())
+                    .padding(.horizontal)
+                    .multilineTextAlignment(.leading)
+                    .font(.title2)
+                    .italic()
+
+                HStack {
+                    Spacer()
+                    Link("— source", destination: URL(string: "https://github.com/merlinmann/wisdom")!)
+                        .font(.caption2)
+                        //.foregroundColor(.secondary)
+                        .padding(.horizontal)
+                }
+            }
+
+            Spacer()
         }
-        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
