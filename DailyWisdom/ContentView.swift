@@ -7,15 +7,17 @@ struct ContentView: View {
                 .font(.largeTitle)
                 .padding()
 
-            Text("Loaded \(QuoteManager.shared.quotes.count) quotes")
+            Text(QuoteManager.shared.getTodaysQuote())
                 .padding()
+                .multilineTextAlignment(.center)
+                .font(.body)
 
-            if let firstQuote = QuoteManager.shared.quotes.first {
-                Text(firstQuote)
-                    .padding()
-                    .multilineTextAlignment(.center)
-            }
+            Text("— Merlin Mann")
+                .font(.caption)
+                .foregroundColor(.secondary)
+                .padding(.top, 8)
         }
+        .padding()
     }
 }
 
