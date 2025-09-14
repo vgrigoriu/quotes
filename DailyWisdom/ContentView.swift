@@ -13,27 +13,29 @@ struct ContentView: View {
                 .foregroundColor(.secondary)
                 .padding(.top, 4)
 
-            Spacer()
+            // Scrollable content area with proper centering
+            GeometryReader { geometry in
+                ScrollView {
+                    VStack(spacing: 16) {
+                        Text(QuoteManager.shared.getTodaysQuote())
+                            .padding(.horizontal)
+                            .multilineTextAlignment(.leading)
+                            .font(.title2)
+                            .italic()
 
-            VStack(spacing: 16) {
-                Text(QuoteManager.shared.getTodaysQuote())
-                    .padding(.horizontal)
-                    .multilineTextAlignment(.leading)
-                    .font(.title2)
-                    .italic()
-
-                HStack {
-                    Spacer()
-                    Link("— source", destination: URL(string: "https://github.com/merlinmann/wisdom")!)
-                        .font(.caption2)
-                        //.foregroundColor(.secondary)
-                        .padding(.horizontal)
+                        HStack {
+                            Spacer()
+                            Link("— source", destination: URL(string: "https://github.com/merlinmann/wisdom")!)
+                                .font(.caption2)
+                                .padding(.horizontal)
+                        }
+                    }
+                    .frame(maxWidth: .infinity)
+                    .frame(minHeight: geometry.size.height)
                 }
+                .scrollBounceBehavior(.always)
             }
-
-            Spacer()
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
 
