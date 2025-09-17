@@ -38,7 +38,7 @@ func createAppIcon(size: CGSize) -> NSBitmapImageRep? {
     gradient?.draw(in: rect, angle: 135) // Diagonal gradient
     
     // Add quote symbol
-    let symbolSize = size.width * 0.75
+    let symbolSize = size.width * 0.85
     let symbolRect = NSRect(
         x: (size.width - symbolSize) / 2,
         y: (size.height - symbolSize) / 2,
@@ -140,6 +140,6 @@ print("4. Build and run to see your new app icon!")
 
 print("\n🎨 Design customization:")
 print("- Edit gradient colors in lines 15-16")
-print("- Change symbol size in line 23 (currently 0.4 = 40% of icon size)")
+print("- Change symbol size in line 41 (currently 0.85 = 85% of icon size)")
 print("- Modify SF Symbol in line 32 (currently 'quote.bubble.fill')")
 print("- Adjust shadow properties in lines 39-42")
