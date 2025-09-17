@@ -84,18 +84,7 @@ class QuoteManager: ObservableObject {
     /// Calculates today's quote based on days elapsed since epoch (September 14, 2025)
     /// The same quote will be returned for the entire day, with a predictable sequence across days
     private func calculateTodaysQuote() -> String {
-        guard !shuffledQuotes.isEmpty else {
-            return "No quotes available"
-        }
-
-        // Calculate days since epoch (September 14, 2025)
-        let daysSinceEpoch = Calendar.current.dateComponents([.day], from: epochDate, to: Date()).day ?? 0
-
-        // Handle negative days properly using modulo arithmetic
-        // This ensures: Day -1 → last quote, Day -2 → second-to-last, etc.
-        let index = ((daysSinceEpoch % shuffledQuotes.count) + shuffledQuotes.count) % shuffledQuotes.count
-
-        return shuffledQuotes[index]
+        return getQuoteForDate(Date())
     }
 
     /// Refreshes the current quote if the day has changed
@@ -116,4 +105,22 @@ class QuoteManager: ObservableObject {
         print("QuoteManager: Received day change notification")
         refreshQuoteIfNeeded()
     }
+
+    /// Public method to get quote for any date (used by notifications)
+    func getQuoteForDate(_ date: Date) -> String {
+        guard !shuffledQuotes.isEmpty else {
+            return "No quotes available"
+        }
+
+        // Calculate days since epoch
+        let daysSinceEpoch = Calendar.current.dateComponents([.day], from: epochDate, to: date).day ?? 0
+
+        // Handle negative days properly using modulo arithmetic
+        // This ensures: Day -1 → last quote, Day -2 → second-to-last, etc.
+        let index = ((daysSinceEpoch % shuffledQuotes.count) + shuffledQuotes.count) % shuffledQuotes.count
+
+        return shuffledQuotes[index]
+    }
+
+
 }

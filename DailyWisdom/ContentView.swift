@@ -1,7 +1,9 @@
 import SwiftUI
+import UserNotifications
 
 struct ContentView: View {
     @StateObject private var quoteManager = QuoteManager.shared
+    @StateObject private var notificationManager = NotificationManager.shared
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
@@ -39,12 +41,21 @@ struct ContentView: View {
                 .scrollBounceBehavior(.always)
             }
         }
-        .onAppear {
-            quoteManager.refreshQuoteIfNeeded()
-        }
         .onChange(of: scenePhase) { _, newPhase in
             if newPhase == .active {
                 quoteManager.refreshQuoteIfNeeded()
+                scheduleNotificationIfAuthorized()
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .permissionsHandled)) { _ in
+            scheduleNotificationIfAuthorized()
+        }
+    }
+
+    private func scheduleNotificationIfAuthorized() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                notificationManager.scheduleNotificationForTomorrow()
             }
         }
     }
