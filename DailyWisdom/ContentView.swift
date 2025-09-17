@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var quoteManager = QuoteManager.shared
+    @Environment(\.scenePhase) private var scenePhase
+
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
             Text("Merlin Mann's Daily Wisdom")
@@ -17,7 +20,7 @@ struct ContentView: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack(spacing: 16) {
-                        Text(QuoteManager.shared.getTodaysQuote())
+                        Text(quoteManager.currentQuote)
                             .padding(.horizontal)
                             .multilineTextAlignment(.leading)
                             .font(.title2)
@@ -36,9 +39,19 @@ struct ContentView: View {
                 .scrollBounceBehavior(.always)
             }
         }
+        .onAppear {
+            quoteManager.refreshQuoteIfNeeded()
+        }
+        .onChange(of: scenePhase) { _, newPhase in
+            if newPhase == .active {
+                quoteManager.refreshQuoteIfNeeded()
+            }
+        }
     }
 }
 
-#Preview {
-    ContentView()
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }

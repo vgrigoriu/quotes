@@ -1,16 +1,37 @@
 import Foundation
+import SwiftUI
 
-class QuoteManager {
+class QuoteManager: ObservableObject {
     static let shared = QuoteManager()
     private let shuffledQuotes: [String]
+
+    // Track current date to detect day changes
+    private var currentDate: Date = Date()
+
+    // Current quote (observable property)
+    @Published var currentQuote: String = ""
 
     // Epoch date: September 14, 2025
     private let epochDate = Calendar.current.date(from: DateComponents(year: 2025, month: 9, day: 14))!
 
     private init() {
         shuffledQuotes = Self.shuffle(Self.loadQuotes())
+        currentQuote = calculateTodaysQuote()
+        print("QuoteManager: Initialized with quote: \(currentQuote)")
+
+        // Listen for day change notifications
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(dayChanged),
+            name: .NSCalendarDayChanged,
+            object: nil
+        )
     }
-    
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+
     private static func loadQuotes() -> [String] {
         // Read wisdom.md from app bundle
         guard let path = Bundle.main.path(forResource: "wisdom", ofType: "md"),
@@ -60,9 +81,9 @@ class QuoteManager {
         return shuffled
     }
 
-    /// Returns today's quote based on days elapsed since epoch (September 14, 2025)
+    /// Calculates today's quote based on days elapsed since epoch (September 14, 2025)
     /// The same quote will be returned for the entire day, with a predictable sequence across days
-    func getTodaysQuote() -> String {
+    private func calculateTodaysQuote() -> String {
         guard !shuffledQuotes.isEmpty else {
             return "No quotes available"
         }
@@ -75,5 +96,24 @@ class QuoteManager {
         let index = ((daysSinceEpoch % shuffledQuotes.count) + shuffledQuotes.count) % shuffledQuotes.count
 
         return shuffledQuotes[index]
+    }
+
+    /// Refreshes the current quote if the day has changed
+    func refreshQuoteIfNeeded() {
+        let today = Date()
+        let calendar = Calendar.current
+
+        // Check if we're on a different day
+        if !calendar.isDate(currentDate, inSameDayAs: today) {
+            currentDate = today
+            currentQuote = calculateTodaysQuote()
+            print("QuoteManager: Day changed, updated to new quote")
+        }
+    }
+
+    /// Called automatically when the day changes (at midnight)
+    @objc private func dayChanged() {
+        print("QuoteManager: Received day change notification")
+        refreshQuoteIfNeeded()
     }
 }
