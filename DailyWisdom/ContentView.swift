@@ -18,6 +18,8 @@ struct ContentView: View {
                 .foregroundColor(.secondary)
                 .padding(.top, 4)
 
+            Text("v. 1.0").font(.caption2).foregroundColor(.secondary)
+
             // Scrollable content area with proper centering
             GeometryReader { geometry in
                 ScrollView {
