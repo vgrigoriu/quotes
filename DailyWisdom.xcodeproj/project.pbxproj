@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,34 @@
 		2A1B3C4D5E6F7890ABCD0009 /* wisdom.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD000A /* wisdom.md */; };
 		2A1B3C4D5E6F7890ABCD0020 /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD0021 /* QuoteManager.swift */; };
 		2A1B3C4D5E6F7890ABCD0022 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD0023 /* NotificationManager.swift */; };
+		678AC1802EB3CD7C0065CE6B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678AC17F2EB3CD7C0065CE6B /* WidgetKit.framework */; };
+		678AC1822EB3CD7C0065CE6B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678AC1812EB3CD7C0065CE6B /* SwiftUI.framework */; };
+		678AC18D2EB3CD7E0065CE6B /* DailyWisdomWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 678AC17D2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		678AC18B2EB3CD7E0065CE6B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2A1B3C4D5E6F7890ABCD0015 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 678AC17C2EB3CD7C0065CE6B;
+			remoteInfo = DailyWisdomWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		678AC18E2EB3CD7E0065CE6B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				678AC18D2EB3CD7E0065CE6B /* DailyWisdomWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2A1B3C4D5E6F7890ABCD0002 /* DailyWisdomApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyWisdomApp.swift; sourceTree = "<group>"; };
@@ -25,13 +52,39 @@
 		2A1B3C4D5E6F7890ABCD000B /* DailyWisdom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyWisdom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1B3C4D5E6F7890ABCD0021 /* QuoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteManager.swift; sourceTree = "<group>"; };
 		2A1B3C4D5E6F7890ABCD0023 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		678AC17D2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = DailyWisdomWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		678AC17F2EB3CD7C0065CE6B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		678AC1812EB3CD7C0065CE6B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		678AC1912EB3CD7E0065CE6B /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 678AC17C2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		678AC1832EB3CD7C0065CE6B /* DailyWisdomWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (678AC1912EB3CD7E0065CE6B /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = DailyWisdomWidget; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2A1B3C4D5E6F7890ABCD000C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678AC17A2EB3CD7C0065CE6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678AC1822EB3CD7C0065CE6B /* SwiftUI.framework in Frameworks */,
+				678AC1802EB3CD7C0065CE6B /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				2A1B3C4D5E6F7890ABCD000E /* DailyWisdom */,
+				678AC1832EB3CD7C0065CE6B /* DailyWisdomWidget */,
+				678AC17E2EB3CD7C0065CE6B /* Frameworks */,
 				2A1B3C4D5E6F7890ABCD000F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -64,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				2A1B3C4D5E6F7890ABCD000B /* DailyWisdom.app */,
+				678AC17D2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +132,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		678AC17E2EB3CD7C0065CE6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				678AC17F2EB3CD7C0065CE6B /* WidgetKit.framework */,
+				678AC1812EB3CD7C0065CE6B /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,15 +151,39 @@
 				2A1B3C4D5E6F7890ABCD0013 /* Sources */,
 				2A1B3C4D5E6F7890ABCD000C /* Frameworks */,
 				2A1B3C4D5E6F7890ABCD0014 /* Resources */,
+				678AC18E2EB3CD7E0065CE6B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				678AC18C2EB3CD7E0065CE6B /* PBXTargetDependency */,
 			);
 			name = DailyWisdom;
 			productName = DailyWisdom;
 			productReference = 2A1B3C4D5E6F7890ABCD000B /* DailyWisdom.app */;
 			productType = "com.apple.product-type.application";
+		};
+		678AC17C2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 678AC1922EB3CD7E0065CE6B /* Build configuration list for PBXNativeTarget "DailyWisdomWidgetExtension" */;
+			buildPhases = (
+				678AC1792EB3CD7C0065CE6B /* Sources */,
+				678AC17A2EB3CD7C0065CE6B /* Frameworks */,
+				678AC17B2EB3CD7C0065CE6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				678AC1832EB3CD7C0065CE6B /* DailyWisdomWidget */,
+			);
+			name = DailyWisdomWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = DailyWisdomWidgetExtension;
+			productReference = 678AC17D2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -103,11 +192,14 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1600;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					2A1B3C4D5E6F7890ABCD0011 = {
 						CreatedOnToolsVersion = 16.0;
+					};
+					678AC17C2EB3CD7C0065CE6B = {
+						CreatedOnToolsVersion = 26.0.1;
 					};
 				};
 			};
@@ -125,6 +217,7 @@
 			projectRoot = "";
 			targets = (
 				2A1B3C4D5E6F7890ABCD0011 /* DailyWisdom */,
+				678AC17C2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +230,13 @@
 				2A1B3C4D5E6F7890ABCD0007 /* Preview Assets.xcassets in Resources */,
 				2A1B3C4D5E6F7890ABCD0005 /* Assets.xcassets in Resources */,
 				2A1B3C4D5E6F7890ABCD0009 /* wisdom.md in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		678AC17B2EB3CD7C0065CE6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +254,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		678AC1792EB3CD7C0065CE6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		678AC18C2EB3CD7E0065CE6B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 678AC17C2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension */;
+			targetProxy = 678AC18B2EB3CD7E0065CE6B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		2A1B3C4D5E6F7890ABCD0017 /* Debug */ = {
@@ -346,6 +461,66 @@
 			};
 			name = Release;
 		};
+		678AC18F2EB3CD7E0065CE6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyWisdomWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DailyWisdomWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ro.vgrigoriu.DailyWisdom.DailyWisdomWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		678AC1902EB3CD7E0065CE6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DailyWisdomWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = DailyWisdomWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ro.vgrigoriu.DailyWisdom.DailyWisdomWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -363,6 +538,15 @@
 			buildConfigurations = (
 				2A1B3C4D5E6F7890ABCD0017 /* Debug */,
 				2A1B3C4D5E6F7890ABCD0018 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		678AC1922EB3CD7E0065CE6B /* Build configuration list for PBXNativeTarget "DailyWisdomWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				678AC18F2EB3CD7E0065CE6B /* Debug */,
+				678AC1902EB3CD7E0065CE6B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
