@@ -21,6 +21,7 @@
 		678AC1942EB3D31D0065CE6B /* wisdom.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD000A /* wisdom.md */; };
 		678AC1962EB3D5A70065CE6B /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678AC1952EB3D5A70065CE6B /* QuoteView.swift */; };
 		678AC1972EB3D6020065CE6B /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678AC1952EB3D5A70065CE6B /* QuoteView.swift */; };
+		678AC19A2EB3D9430065CE6B /* BuildDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 678AC1992EB3D9430065CE6B /* BuildDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		678AC17F2EB3CD7C0065CE6B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		678AC1812EB3CD7C0065CE6B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		678AC1952EB3D5A70065CE6B /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
+		678AC1992EB3D9430065CE6B /* BuildDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildDate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -109,6 +111,7 @@
 		2A1B3C4D5E6F7890ABCD000E /* DailyWisdom */ = {
 			isa = PBXGroup;
 			children = (
+				678AC1992EB3D9430065CE6B /* BuildDate.swift */,
 				2A1B3C4D5E6F7890ABCD0002 /* DailyWisdomApp.swift */,
 				2A1B3C4D5E6F7890ABCD0004 /* ContentView.swift */,
 				678AC1952EB3D5A70065CE6B /* QuoteView.swift */,
@@ -154,6 +157,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2A1B3C4D5E6F7890ABCD0012 /* Build configuration list for PBXNativeTarget "DailyWisdom" */;
 			buildPhases = (
+				678AC1982EB3D7F90065CE6B /* ShellScript */,
 				2A1B3C4D5E6F7890ABCD0013 /* Sources */,
 				2A1B3C4D5E6F7890ABCD000C /* Frameworks */,
 				2A1B3C4D5E6F7890ABCD0014 /* Resources */,
@@ -249,6 +253,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		678AC1982EB3D7F90065CE6B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/DailyWisdom/BuildDate.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\nset -euo pipefail\n\n# Generate current date in the format 2025.10.30\nBUILD_DATE=$(date \"+%Y.%m.%d\")\n\n# Create the Swift file with the build date\ncat > \"${SRCROOT}/DailyWisdom/BuildDate.swift\" << EOF\n// This file is auto-generated during build\n// Do not edit manually\nimport Foundation\nstruct BuildInfo {\n    static let date = \"$BUILD_DATE\"\n}\nEOF\n\necho \"Generated BuildDate.swift with date: $BUILD_DATE\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2A1B3C4D5E6F7890ABCD0013 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -258,6 +283,7 @@
 				2A1B3C4D5E6F7890ABCD0003 /* ContentView.swift in Sources */,
 				2A1B3C4D5E6F7890ABCD0001 /* DailyWisdomApp.swift in Sources */,
 				2A1B3C4D5E6F7890ABCD0020 /* QuoteManager.swift in Sources */,
+				678AC19A2EB3D9430065CE6B /* BuildDate.swift in Sources */,
 				2A1B3C4D5E6F7890ABCD0022 /* NotificationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

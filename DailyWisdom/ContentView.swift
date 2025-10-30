@@ -13,12 +13,7 @@ struct ContentView: View {
                 .padding(.top, 20)
                 .padding(.horizontal)
 
-            Text(Date(), style: .date)
-                .font(.caption)
-                .foregroundColor(.secondary)
-                .padding(.top, 4)
-
-            Text("v. 2.0").font(.caption2).foregroundColor(.secondary)
+            Text("v. \(BuildInfo.date)").font(.caption2).foregroundColor(.secondary)
 
             // Scrollable content area with proper centering
             GeometryReader { geometry in
