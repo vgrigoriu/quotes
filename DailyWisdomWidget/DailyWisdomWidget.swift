@@ -2,30 +2,29 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), quote: "Loading wisdom...")
+    func placeholder(in context: Context) -> QuoteTimelineEntry {
+        QuoteTimelineEntry(date: Date(), quote: "Loading wisdom...")
     }
 
-    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let quote = QuoteManager.shared.getQuoteForDate(Date())
-        completion(SimpleEntry(date: Date(), quote: quote))
+    func getSnapshot(in context: Context, completion: @escaping (QuoteTimelineEntry) -> ()) {
+        let now = Date()
+        let quote = QuoteManager.shared.getQuoteForDate(now)
+        completion(QuoteTimelineEntry(date: now, quote: quote))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
-        let currentDate = Date()
-        let quote = QuoteManager.shared.getQuoteForDate(currentDate)
-        let entry = SimpleEntry(date: currentDate, quote: quote)
+        getSnapshot(in: context) { entry in
+            // Update at midnight tomorrow
+            let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: entry.date)!
+            let midnight = Calendar.current.startOfDay(for: tomorrow)
 
-        // Update at midnight tomorrow
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: currentDate)!
-        let midnight = Calendar.current.startOfDay(for: tomorrow)
-
-        let timeline = Timeline(entries: [entry], policy: .after(midnight))
-        completion(timeline)
+            let timeline = Timeline(entries: [entry], policy: .after(midnight))
+            completion(timeline)
+        }
     }
 }
 
-struct SimpleEntry: TimelineEntry {
+struct QuoteTimelineEntry: TimelineEntry {
     let date: Date
     let quote: String
 }
