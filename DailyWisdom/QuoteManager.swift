@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import Combine
 
 class QuoteManager: ObservableObject {
     static let shared = QuoteManager()

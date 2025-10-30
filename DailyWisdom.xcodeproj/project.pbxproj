@@ -17,6 +17,8 @@
 		678AC1802EB3CD7C0065CE6B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678AC17F2EB3CD7C0065CE6B /* WidgetKit.framework */; };
 		678AC1822EB3CD7C0065CE6B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678AC1812EB3CD7C0065CE6B /* SwiftUI.framework */; };
 		678AC18D2EB3CD7E0065CE6B /* DailyWisdomWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 678AC17D2EB3CD7C0065CE6B /* DailyWisdomWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		678AC1932EB3D1020065CE6B /* QuoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD0021 /* QuoteManager.swift */; };
+		678AC1942EB3D31D0065CE6B /* wisdom.md in Resources */ = {isa = PBXBuildFile; fileRef = 2A1B3C4D5E6F7890ABCD000A /* wisdom.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678AC1942EB3D31D0065CE6B /* wisdom.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				678AC1932EB3D1020065CE6B /* QuoteManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
