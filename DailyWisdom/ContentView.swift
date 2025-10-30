@@ -24,11 +24,8 @@ struct ContentView: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack(spacing: 16) {
-                        Text(quoteManager.currentQuote)
-                            .padding(.horizontal)
-                            .multilineTextAlignment(.leading)
-                            .font(.title2)
-                            .italic()
+
+                        QuoteView(quote: quoteManager.currentQuote)
 
                         HStack {
                             Spacer()

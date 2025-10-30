@@ -7,9 +7,8 @@ struct Provider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (QuoteTimelineEntry) -> ()) {
-        let now = Date()
-        let quote = QuoteManager.shared.getQuoteForDate(now)
-        completion(QuoteTimelineEntry(date: now, quote: quote))
+        let quote = QuoteManager.shared.currentQuote
+        completion(QuoteTimelineEntry(date: Date(), quote: quote))
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
@@ -33,10 +32,7 @@ struct DailyWisdomWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        Text(entry.quote)
-            .font(.body)
-            .multilineTextAlignment(.center)
-            .padding()
+        QuoteView(quote: entry.quote)
     }
 }
 
