@@ -32,7 +32,7 @@ struct DailyWisdomWidgetEntryView: View {
     var entry: Provider.Entry
 
     var body: some View {
-        QuoteView(quote: entry.quote)
+        QuoteView(quote: entry.quote, font: .body)
     }
 }
 
